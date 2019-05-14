@@ -2,9 +2,9 @@ package main
 
 import (
 	"bufio"
+	"concurrent_sort/pipeline"
 	"fmt"
 	"os"
-	"sandbox/concurrent_sort/pipeline"
 )
 
 func main() {
