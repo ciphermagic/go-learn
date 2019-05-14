@@ -10,16 +10,19 @@ func NetworkSink(addr string, in <-chan int) {
 	if err != nil {
 		panic(err)
 	}
-	defer listener.Close()
+	go func() {
+		defer listener.Close()
+		conn, err := listener.Accept()
+		if err != nil {
+			panic(err)
+		}
+		defer conn.Close()
 
-	conn, err := listener.Accept()
-	if err != nil {
-		panic(err)
-	}
-	defer conn.Close()
+		writer := bufio.NewWriter(conn)
+		defer writer.Flush()
 
-	writer := bufio.NewWriter(conn)
-	WriterSink(writer, in)
+		WriterSink(writer, in)
+	}()
 }
 
 func NetworkSource(addr string) <-chan int {
