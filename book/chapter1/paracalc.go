@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// 这是一个并行计算的例子，由两个goroutine进行并行的累加计算，待这两个计算过程都完成后打印计算结果
 func main() {
 	values := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
