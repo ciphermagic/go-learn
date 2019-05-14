@@ -1,9 +1,9 @@
 package main
 
 import (
+	"book/chapter1/calcproj/simplemath"
 	"fmt"
 	"os"
-	"sandbox/book/chapter1/calcproj/src/simplemath"
 	"strconv"
 )
 
@@ -14,19 +14,19 @@ var Usage = func() {
 
 func main() {
 	args := os.Args
-	if args == nil || len(args) < 2 {
+	if args == nil || len(args) < 3 {
 		Usage()
 		return
 	}
 
-	switch args[0] {
+	switch args[1] {
 	case "add":
-		if len(args) != 3 {
+		if len(args) != 4 {
 			fmt.Println("USAGE: calc add <integer1><integer2>")
 			return
 		}
-		v1, err1 := strconv.Atoi(args[1])
-		v2, err2 := strconv.Atoi(args[2])
+		v1, err1 := strconv.Atoi(args[2])
+		v2, err2 := strconv.Atoi(args[3])
 		if err1 != nil || err2 != nil {
 			fmt.Println("USAGE: calc add <integer1><integer2>")
 			return
