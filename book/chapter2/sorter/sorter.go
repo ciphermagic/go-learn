@@ -1,16 +1,19 @@
 package main
 
 import (
+	"book/chapter2/sorter/algorithms/bubblesort"
+	"book/chapter2/sorter/algorithms/qsort"
 	"bufio"
 	"flag"
 	"fmt"
 	"io"
 	"os"
 	"strconv"
+	"time"
 )
 
-var infile *string = flag.String("i", "infile", "File contains values for sorting")
-var outfile *string = flag.String("o", "outfile", "File to receive sorted values")
+var infile *string = flag.String("i", "unsorted.txt", "File contains values for sorting")
+var outfile *string = flag.String("o", "sorted.txt", "File to receive sorted values")
 var algorithm *string = flag.String("a", "qsort", "Sort algorithm")
 
 func main() {
@@ -19,7 +22,18 @@ func main() {
 		fmt.Println("infile =", *infile, "outfile =", *outfile, "algorithm =", *algorithm)
 		values, err := readValues(*infile)
 		if err == nil {
-			fmt.Println("Read values:", values)
+			t1 := time.Now()
+			switch *algorithm {
+			case "qsort":
+				qsort.QuickSort(values)
+			case "bubblesort":
+				bubblesort.BubbleSort(values)
+			default:
+				fmt.Println("Sorting algorithm", *algorithm, "is either unknown or unsupported.")
+			}
+			t2 := time.Now()
+			fmt.Println("The sorting process costs", t2.Sub(t1), "to complete.")
+			writeValues(values, *outfile)
 		} else {
 			fmt.Println(err)
 		}
@@ -61,4 +75,19 @@ func readValues(infile string) (values []int, err error) {
 		values = append(values, value)
 	}
 	return
+}
+
+func writeValues(values []int, outfile string) error {
+	file, err := os.Create(outfile)
+	if err != nil {
+		fmt.Println("Failed to create the output file", outfile)
+		return err
+	}
+	defer file.Close()
+
+	for _, value := range values {
+		str := strconv.Itoa(value)
+		file.WriteString(str + "\n")
+	}
+	return nil
 }
