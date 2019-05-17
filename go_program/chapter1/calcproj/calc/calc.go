@@ -1,8 +1,8 @@
 package main
 
 import (
-	"book/chapter1/calcproj/simplemath"
 	"fmt"
+	"go_program/chapter1/calcproj/simplemath"
 	"os"
 	"strconv"
 )

@@ -1,11 +1,11 @@
 package main
 
 import (
-	"book/chapter2/sorter/algorithms/bubblesort"
-	"book/chapter2/sorter/algorithms/qsort"
 	"bufio"
 	"flag"
 	"fmt"
+	"go_program/chapter2/sorter/algorithms/bubblesort"
+	"go_program/chapter2/sorter/algorithms/qsort"
 	"io"
 	"os"
 	"strconv"
