@@ -6,12 +6,12 @@ package main
 
 import "fmt"
 
-func lengthOfNonRepertingSubStr(s string) int {
-	lastOccurred := make(map[byte]int)
+func lengthOfNonRepeatingSubStr(s string) int {
+	lastOccurred := make(map[rune]int)
 	start := 0
 	maxLength := 0
 
-	for i, ch := range []byte(s) {
+	for i, ch := range []rune(s) {
 		if lastI, ok := lastOccurred[ch]; ok && lastI >= start {
 			start = lastI + 1
 		}
@@ -25,10 +25,12 @@ func lengthOfNonRepertingSubStr(s string) int {
 }
 
 func main() {
-	fmt.Println(lengthOfNonRepertingSubStr("abcabcbb"))
-	fmt.Println(lengthOfNonRepertingSubStr("bbbbb"))
-	fmt.Println(lengthOfNonRepertingSubStr("pwwkew"))
-	fmt.Println(lengthOfNonRepertingSubStr(""))
-	fmt.Println(lengthOfNonRepertingSubStr("b"))
-	fmt.Println(lengthOfNonRepertingSubStr("abcdef"))
+	fmt.Println(lengthOfNonRepeatingSubStr("abcabcbb"))
+	fmt.Println(lengthOfNonRepeatingSubStr("bbbbb"))
+	fmt.Println(lengthOfNonRepeatingSubStr("pwwkew"))
+	fmt.Println(lengthOfNonRepeatingSubStr(""))
+	fmt.Println(lengthOfNonRepeatingSubStr("b"))
+	fmt.Println(lengthOfNonRepeatingSubStr("abcdef"))
+	fmt.Println(lengthOfNonRepeatingSubStr("一二三二一"))
+	fmt.Println(lengthOfNonRepeatingSubStr("获得礼物"))
 }
