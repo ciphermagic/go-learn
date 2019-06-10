@@ -2,10 +2,11 @@ package main
 
 import (
 	"bufio"
-	"concurrent_sort/pipeline"
 	"fmt"
 	"os"
 	"strconv"
+
+	"ciphermagic.cn/cipher/concurrentsort/pipeline"
 )
 
 func main() {

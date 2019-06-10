@@ -1,4 +1,4 @@
-package varg
+package main
 
 import "fmt"
 

@@ -2,7 +2,7 @@
 // abcabcbb -> abc
 // bbbbb -> b
 // pwwkew -> wke
-package nonrepeating
+package main
 
 import "fmt"
 

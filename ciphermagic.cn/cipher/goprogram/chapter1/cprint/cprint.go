@@ -1,4 +1,4 @@
-package cprint
+package main
 
 /*
 #include <stdio.h>

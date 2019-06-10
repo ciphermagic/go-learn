@@ -1,5 +1,5 @@
 // 产生随机莉萨如图形的 GIF 动画
-package lissajous
+package main
 
 import (
 	"image"

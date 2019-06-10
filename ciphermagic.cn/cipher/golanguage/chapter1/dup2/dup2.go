@@ -1,6 +1,6 @@
 // 打印输入中多次出现的行的个数和文本
 // 它从 stdin 或指定的文件列表读取
-package dup2
+package main
 
 import (
 	"bufio"

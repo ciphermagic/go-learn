@@ -1,5 +1,5 @@
 // 输出标准输入中出现次数大于1的行，前面是次数
-package dup1
+package main
 
 import (
 	"bufio"

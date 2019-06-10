@@ -1,4 +1,4 @@
-package paracalc
+package main
 
 import "fmt"
 

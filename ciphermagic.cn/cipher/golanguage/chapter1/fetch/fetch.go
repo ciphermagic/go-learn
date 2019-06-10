@@ -1,5 +1,5 @@
 // 输出从 URL 获取的内容
-package fetch
+package main
 
 import (
 	"fmt"

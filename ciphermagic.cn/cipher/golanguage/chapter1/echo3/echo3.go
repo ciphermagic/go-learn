@@ -1,5 +1,5 @@
 // 输出命令行参数
-package echo3
+package main
 
 import (
 	"fmt"

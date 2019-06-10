@@ -1,5 +1,5 @@
 // 并发获取 URL 并报告它们的时间和大小
-package fetchall
+package main
 
 import (
 	"fmt"
