@@ -47,5 +47,5 @@ func main() {
 		fmt.Println("not a mock retriever")
 	}
 
-	//fmt.Println(download(r))
+	fmt.Println(download(r))
 }
