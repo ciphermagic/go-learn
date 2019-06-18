@@ -37,7 +37,9 @@ func session(s RetrieverPoster) string {
 func main() {
 	var r Retriever
 
-	r = &mock.Retriever{Contents: "this is a fake imooc.com"}
+	r = &mock.Retriever{
+		Contents: "this is a fake imooc.com",
+	}
 	inspect(r)
 
 	r = &real.Retriever{
@@ -46,26 +48,32 @@ func main() {
 	}
 	inspect(r)
 
+	fmt.Println("\nIs real.Retriever:")
 	realRetriever := r.(*real.Retriever)
-	fmt.Println("TimeOut:", realRetriever.TimeOut)
+	fmt.Println("real.Retriever's TimeOut:", realRetriever.TimeOut)
 
+	fmt.Println("\nIs mock.Retriever:")
 	if mockRetriever, ok := r.(*mock.Retriever); ok {
-		fmt.Println("Contents:", mockRetriever.Contents)
+		fmt.Println("mock.Retriever's Contents:", mockRetriever.Contents)
 	} else {
 		fmt.Println("not a mock retriever")
 	}
 
-	fmt.Println(download(r))
+	fmt.Println("\nDownloading:")
+	//fmt.Println(download(r))
 
+	fmt.Println("\nTry a session")
 	fmt.Println(session(&mock.Retriever{}))
+
 }
 
 func inspect(r Retriever) {
-	fmt.Printf("Type => %T %v\n", r, r)
+	fmt.Println("\nInspecting", r)
+	fmt.Printf(" > %T\n", r)
 	switch v := r.(type) {
 	case *mock.Retriever:
-		fmt.Println("inspecting => Contents:", v.Contents)
+		fmt.Println(" > Contents:", v.Contents)
 	case *real.Retriever:
-		fmt.Println("inspecting => UserAgent", v.UserAgent)
+		fmt.Println(" > UserAgent:", v.UserAgent)
 	}
 }

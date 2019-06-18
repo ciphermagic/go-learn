@@ -1,6 +1,7 @@
 package real
 
 import (
+	"fmt"
 	"net/http"
 	"net/http/httputil"
 	"time"
@@ -25,4 +26,8 @@ func (r *Retriever) Get(url string) string {
 		panic(err)
 	}
 	return string(result)
+}
+
+func (r *Retriever) String() string {
+	return fmt.Sprintf("Real Retriever: {UserAgent=%s, TimeOut=%s}", r.UserAgent, r.TimeOut)
 }
