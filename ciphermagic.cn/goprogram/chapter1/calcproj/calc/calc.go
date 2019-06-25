@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 
-	"ciphermagic.cn/learn/goprogram/chapter1/calcproj/simplemath"
+	"ciphermagic.cn/goprogram/chapter1/calcproj/simplemath"
 )
 
 var Usage = func() {

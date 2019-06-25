@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"ciphermagic.cn/learn/imoocbasic/struct/tree"
+	"ciphermagic.cn/imoocbasic/struct/tree"
 	"golang.org/x/tools/container/intsets"
 )
 

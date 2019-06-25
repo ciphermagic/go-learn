@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"ciphermagic.cn/learn/concurrentsort/pipeline"
+	"ciphermagic.cn/concurrentsort/pipeline"
 )
 
 func main() {

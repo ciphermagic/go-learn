@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"ciphermagic.cn/learn/imoocbasic/struct/queue"
+	"ciphermagic.cn/imoocbasic/struct/queue"
 )
 
 func main() {

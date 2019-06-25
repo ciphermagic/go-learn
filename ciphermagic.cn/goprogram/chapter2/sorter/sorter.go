@@ -9,8 +9,8 @@ import (
 	"strconv"
 	"time"
 
-	"ciphermagic.cn/learn/goprogram/chapter2/sorter/algorithms/bubblesort"
-	"ciphermagic.cn/learn/goprogram/chapter2/sorter/algorithms/qsort"
+	"ciphermagic.cn/goprogram/chapter2/sorter/algorithms/bubblesort"
+	"ciphermagic.cn/goprogram/chapter2/sorter/algorithms/qsort"
 )
 
 var infile *string = flag.String("i", "unsorted.txt", "File contains values for sorting")
