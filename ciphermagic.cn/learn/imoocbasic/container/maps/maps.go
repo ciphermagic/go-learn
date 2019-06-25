@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	m := map[string]string{
-		"name":   "cipher",
+		"name":   "learn",
 		"course": "golang",
 		"site":   "imooc",
 	}

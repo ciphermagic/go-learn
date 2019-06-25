@@ -6,7 +6,7 @@ import (
 	"os"
 	"strconv"
 
-	"ciphermagic.cn/cipher/concurrentsort/pipeline"
+	"ciphermagic.cn/learn/concurrentsort/pipeline"
 )
 
 func main() {

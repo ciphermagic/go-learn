@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"ciphermagic.cn/cipher/imoocbasic/interface/retriever/mock"
-	"ciphermagic.cn/cipher/imoocbasic/interface/retriever/real"
+	"ciphermagic.cn/learn/imoocbasic/interface/retriever/mock"
+	"ciphermagic.cn/learn/imoocbasic/interface/retriever/real"
 )
 
 const url = "http://www.imooc.com"
