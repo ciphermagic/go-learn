@@ -28,3 +28,14 @@ func TestSubstr(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkSubstr(b *testing.B) {
+	s := "一二三二一"
+	ans := 3
+	actual := lengthOfNonRepeatingSubStr(s)
+	for i := 0; i < b.N; i++ {
+		if actual != ans {
+			b.Errorf("lengthOfNonRepeatingSubStr('%s'); got %d; expected %d", s, actual, ans)
+		}
+	}
+}
