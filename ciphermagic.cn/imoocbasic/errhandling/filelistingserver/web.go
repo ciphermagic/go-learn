@@ -11,21 +11,27 @@ type appHandler func(writer http.ResponseWriter, request *http.Request) error
 
 func errWrapper(handler appHandler) func(http.ResponseWriter, *http.Request) {
 	return func(writer http.ResponseWriter, request *http.Request) {
+
+		// panic
 		defer func() {
 			if r := recover(); r != nil {
 				log.Error("Panic: %v", r)
 				http.Error(writer, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			}
 		}()
+
 		err := handler(writer, request)
+
 		if err != nil {
 			log.Warn("Error occurred handling request: %s", err)
 
+			// user error
 			if userError, ok := err.(userError); ok {
 				http.Error(writer, userError.Message(), http.StatusBadRequest)
 				return
 			}
 
+			// system error
 			code := http.StatusOK
 			switch {
 			case os.IsNotExist(err):
