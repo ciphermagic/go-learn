@@ -4,6 +4,7 @@ import (
 	"ciphermagic.cn/imoocbasic/errhandling/filelistingserver/filelisting"
 	"github.com/gpmgo/gopm/modules/log"
 	"net/http"
+	_ "net/http/pprof"
 	"os"
 )
 

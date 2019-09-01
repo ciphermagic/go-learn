@@ -42,6 +42,6 @@ func HandleFileList(writer http.ResponseWriter, request *http.Request) error {
 	if err != nil {
 		return err
 	}
-	log.Debug("write success %d bytes", i)
+	log.Info("write success %d bytes", i)
 	return nil
 }
