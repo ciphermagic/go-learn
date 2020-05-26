@@ -15,7 +15,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const path = "/Users/cipher/go/src/ciphermagic.cn/imoocbasic/mockserver"
+const path = "imoocbasic/mockserver"
 const templateSuggestion = "Please make sure working directory is the root of the repository, where we have go.mod/go.sum. Suggested command line: go run mockserver/main.go"
 
 func main() {
