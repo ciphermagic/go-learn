@@ -5,7 +5,7 @@ import (
 	"regexp"
 )
 
-const cityListRe = `href="(http://www.zhenai.com/zhenghun/[0-9a-z]+)"[^>]*>([^<^征婚]+)</a>`
+const cityListRe = `href="(.*www\.zhenai\.com/zhenghun/[0-9a-z]+)"[^>]*>([^<^征婚]+)</a>`
 
 func ParseCityList(contents []byte) engine.ParseResult {
 	re := regexp.MustCompile(cityListRe)
@@ -13,10 +13,10 @@ func ParseCityList(contents []byte) engine.ParseResult {
 
 	result := engine.ParseResult{}
 	for _, m := range matches {
-		result.Items = append(result.Items, string(m[2]))
+		result.Items = append(result.Items, "City "+string(m[2]))
 		result.Requests = append(result.Requests, engine.Request{
 			Url:        string(m[1]),
-			ParserFunc: engine.NilParser,
+			ParserFunc: ParseCity,
 		})
 	}
 	return result
