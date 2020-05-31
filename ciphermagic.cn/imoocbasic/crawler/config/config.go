@@ -7,6 +7,9 @@ const (
 	ParseProfile  = "ParseProfile"
 	NilParser     = "NilParser"
 
+	// ElasticSearch
+	ElasticIndex = "dating_profile"
+
 	// Rate limiting
 	Qps = 2
 )

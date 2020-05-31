@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	itemChan, err := persist.ItemSaver("dating_profile")
+	itemChan, err := persist.ItemSaver(config.ElasticIndex)
 	if err != nil {
 		panic(err)
 	}
