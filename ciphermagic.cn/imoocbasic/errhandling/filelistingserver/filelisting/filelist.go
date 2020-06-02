@@ -1,8 +1,8 @@
 package filelisting
 
 import (
-	"github.com/gpmgo/gopm/modules/log"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -42,6 +42,6 @@ func HandleFileList(writer http.ResponseWriter, request *http.Request) error {
 	if err != nil {
 		return err
 	}
-	log.Info("write success %d bytes", i)
+	log.Printf("write success %d bytes", i)
 	return nil
 }

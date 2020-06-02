@@ -2,7 +2,7 @@ package main
 
 import (
 	"ciphermagic.cn/imoocbasic/errhandling/filelistingserver/filelisting"
-	"github.com/gpmgo/gopm/modules/log"
+	"log"
 	"net/http"
 	_ "net/http/pprof"
 	"os"
@@ -16,7 +16,7 @@ func errWrapper(handler appHandler) func(http.ResponseWriter, *http.Request) {
 		// panic
 		defer func() {
 			if r := recover(); r != nil {
-				log.Error("Panic: %v", r)
+				log.Printf("Panic: %v", r)
 				http.Error(writer, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			}
 		}()
@@ -24,7 +24,7 @@ func errWrapper(handler appHandler) func(http.ResponseWriter, *http.Request) {
 		err := handler(writer, request)
 
 		if err != nil {
-			log.Warn("Error occurred handling request: %s", err)
+			log.Printf("Error occurred handling request: %s", err)
 
 			// user error
 			if userError, ok := err.(userError); ok {
