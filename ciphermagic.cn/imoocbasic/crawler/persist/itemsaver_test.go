@@ -37,7 +37,7 @@ func TestSaver(t *testing.T) {
 
 	const index = "dating_test"
 	// Save expected item
-	_ = save(client, index, expected)
+	_ = Save(client, index, expected)
 
 	// Fetch saved item
 	resp, _ := client.Get().
