@@ -26,6 +26,7 @@ type Item struct {
 	Payload interface{}
 }
 
+// NilParser
 type NilParser struct{}
 
 func (NilParser) Parse(_ []byte, _ string) ParseResult {
@@ -36,6 +37,7 @@ func (NilParser) Serialize() (name string, args interface{}) {
 	return config.NilParser, nil
 }
 
+// FuncParser
 type FuncParser struct {
 	parser ParserFunc
 	name   string
