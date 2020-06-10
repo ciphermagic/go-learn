@@ -1,6 +1,8 @@
 package worker
 
-import "ciphermagic.cn/imoocbasic/crawler/engine"
+import (
+	"ciphermagic.cn/imoocbasic/crawler/engine"
+)
 
 type CrawlService struct{}
 
@@ -9,6 +11,7 @@ func (CrawlService) Process(request Request, result *ParseResult) error {
 	if err != nil {
 		return err
 	}
+
 	engineResult, err := engine.Worker(engineRequest)
 	if err != nil {
 		return err

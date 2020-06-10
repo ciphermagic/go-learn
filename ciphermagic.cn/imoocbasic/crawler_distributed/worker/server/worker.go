@@ -1,15 +1,22 @@
 package main
 
 import (
-	"ciphermagic.cn/imoocbasic/crawler/config"
 	"ciphermagic.cn/imoocbasic/crawler_distributed/rpcsupport"
 	"ciphermagic.cn/imoocbasic/crawler_distributed/worker"
+	"flag"
 	"fmt"
 	"log"
 )
 
+var port = flag.Int("port", 0, "the port for me to listen on")
+
 func main() {
-	log.Fatal(serveRpc(fmt.Sprintf(":%d", config.WorkerPort0)))
+	flag.Parse()
+	if *port == 0 {
+		fmt.Println("must specify a port")
+		return
+	}
+	log.Fatal(serveRpc(fmt.Sprintf(":%d", *port)))
 }
 
 func serveRpc(host string) error {
