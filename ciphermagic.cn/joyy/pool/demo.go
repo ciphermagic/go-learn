@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	liveWithTask()
+	dead()
 }
 
 // -============================ dead =============================
@@ -43,7 +43,6 @@ func liveWithChan() {
 		go func(i int) {
 			defer func() { <-channel }()
 			fmt.Println("goroutine count = ", runtime.NumGoroutine())
-
 		}(i)
 	}
 }
