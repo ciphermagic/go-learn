@@ -1,14 +1,8 @@
 package main
 
-import (
-	"fmt"
-	"github.com/bytedance/gopkg/util/gopool"
-	"time"
-)
+import "fmt"
 
 func main() {
-	gopool.Go(func() {
-		fmt.Println("aaa")
-	})
-	time.Sleep(time.Hour)
+	fmt.Println(HostInfo.Idc)
+	fmt.Println(HostInfo.Name)
 }
