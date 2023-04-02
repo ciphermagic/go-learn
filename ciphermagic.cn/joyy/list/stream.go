@@ -45,13 +45,14 @@ func (s *List) Flat(fn func(any) []any) *List {
 	}
 }
 
-func (s *List) Collect() []any {
+func (s *List) ToList() []any {
 	return s.list
 }
 
-func Wrap[T any](source []any, target []T) []T {
-	for _, v := range source {
-		target = append(target, v.(T))
+func (s *List) Collect(f func(any) any) []any {
+	target := make([]any, 0)
+	for _, v := range s.list {
+		target = append(target, f(v))
 	}
 	return target
 }

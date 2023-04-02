@@ -12,15 +12,15 @@ func TestList(t *testing.T) {
 	}
 	res := Lists(raw).
 		Flat(func(i any) []any {
-			return Lists(i.(Person).Men).Collect()
+			return Lists(i.(Person).Men).ToList()
 		}).
 		Map(func(i any) any {
 			return Woman{WomanName: i.(Man).ManName}
 		}).
-		Collect()
-
-	ac := Wrap(res, []Woman{})
-	fmt.Println(ac)
+		Collect(func(i any) any {
+			return i.(Woman)
+		})
+	fmt.Println(res)
 }
 
 type Person struct {
