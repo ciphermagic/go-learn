@@ -20,13 +20,7 @@ func Lists[T any](items any) *List[T] {
 	l := rv.Len()
 	s := make([]any, 0, l)
 	for i := 0; i < l; i++ {
-		_v := rv.Index(i)
-		switch _v.Kind() {
-		case reflect.Pointer:
-			s = append(s, rv.Index(i).Elem().Interface())
-		default:
-			s = append(s, rv.Index(i).Interface())
-		}
+		s = append(s, rv.Index(i).Interface())
 	}
 	return &List[T]{
 		list: s,
