@@ -3,6 +3,7 @@ package list
 import (
 	"fmt"
 	"reflect"
+	"sort"
 )
 
 type List[T any] struct {
@@ -61,6 +62,26 @@ func (s *List[T]) Flat(fn func(any) []any) *List[T] {
 	return &List[T]{
 		list: l,
 	}
+}
+
+func (s *List[T]) Max(fn func(i, j any) bool) *List[T] {
+	if len(s.list) <= 0 {
+		return s
+	}
+	sort.SliceStable(s.list, func(i, j int) bool {
+		return fn(s.list[i], s.list[j])
+	})
+	return &List[T]{
+		list: s.list[0:1],
+	}
+}
+
+func (s *List[T]) FindFirst() (T, bool) {
+	if len(s.list) <= 0 {
+		var nonsense T
+		return nonsense, false
+	}
+	return s.list[0].(T), true
 }
 
 func (s *List[T]) ToList() []any {

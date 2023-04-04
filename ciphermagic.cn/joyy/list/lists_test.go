@@ -11,7 +11,7 @@ func TestList(t *testing.T) {
 		{Name: "aaa", Men: []Man{{ManName: "1"}, {ManName: "2"}}},
 		{Name: "bbb", Men: []Man{{ManName: "3"}, {ManName: "4"}}},
 	}
-	res := Lists[Person](raw).Flat(func(p any) []any {
+	res, ok := Lists[Person](raw).Flat(func(p any) []any {
 		return Lists[Woman](p.(Person).Men).Map(func(m any) any {
 			return Woman{WomanName: p.(Person).Name + "-" + m.(Man).ManName}
 		}).ToList()
@@ -19,8 +19,10 @@ func TestList(t *testing.T) {
 		return strings.HasPrefix(a.(Woman).WomanName, "aaa")
 	}).Map(func(a any) any {
 		return Person{Name: a.(Woman).WomanName}
-	}).Collect()
-	fmt.Println(res)
+	}).Max(func(i, j any) bool {
+		return i.(Person).Name > j.(Person).Name
+	}).FindFirst()
+	fmt.Println(res, ok)
 }
 
 type Person struct {
