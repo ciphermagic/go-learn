@@ -12,10 +12,8 @@ type List[T any] struct {
 
 func Lists[T any](items any) *List[T] {
 	rv := reflect.ValueOf(items)
-	switch rv.Kind() {
-	case reflect.Slice:
-	default:
-		panic(fmt.Sprintf("not supported type: %v, please use slice intead", rv.Kind()))
+	if rv.Kind() != reflect.Slice {
+		panic(fmt.Sprintf("not supported type: %v, please use slice instead", rv.Kind()))
 	}
 	l := rv.Len()
 	s := make([]any, 0, l)
@@ -58,16 +56,18 @@ func (s *List[T]) Flat(fn func(any) []any) *List[T] {
 	}
 }
 
-func (s *List[T]) Max(fn func(i, j any) bool) *List[T] {
+func (s *List[T]) Sort(fn func(i, j any) bool) *List[T] {
 	if len(s.list) <= 0 {
 		return s
 	}
 	sort.SliceStable(s.list, func(i, j int) bool {
 		return fn(s.list[i], s.list[j])
 	})
-	return &List[T]{
-		list: s.list[0:1],
-	}
+	return s
+}
+
+func (s *List[T]) Max(fn func(i, j any) bool) (T, bool) {
+	return s.Sort(fn).FindFirst()
 }
 
 func (s *List[T]) FindFirst() (T, bool) {
