@@ -1,8 +1,16 @@
-package test
+package main
 
-var z *int
+import (
+	"fmt"
+	"time"
+)
 
-func escape() {
-	a := 1
-	z = &a
+func main() {
+	go func() {
+		for {
+			time.Sleep(time.Second)
+			fmt.Println("aaaaaaaaaaa")
+		}
+	}()
+	select {}
 }
