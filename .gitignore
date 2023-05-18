@@ -1,0 +1,9 @@
+*.in
+*.out
+*_test_data.*
+.DS_Store
+.idea
+*.exe
+*.txt
+github.com/
+golang.org/

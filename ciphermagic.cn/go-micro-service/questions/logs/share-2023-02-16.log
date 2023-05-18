@@ -1,0 +1,5 @@
+[Info]2023/02/16 19:48:53 logger.go:32: http server started
+[Warn]2023/02/16 19:48:53 logger.go:40: http server started
+[Error]2023/02/16 19:48:53 logger.go:48: http server started
+[Debug]2023/02/16 19:48:53 logger.go:56: http server started
+[Info]2023/02/16 19:48:53 logger.go:34: http server started, listened on port [8000]

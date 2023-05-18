@@ -1,0 +1,14 @@
+[windows]
+rootDir = ""
+port = "8000"
+dbDebug = false
+
+[osx]
+rootDir = "/Users/cipher/go-workspace/go-learn/ciphermagic.cn/go-micro-service/questions"
+port = "8000"
+dbDebug = true
+
+[linux]
+rootDir = ""
+port = "8000"
+dbDebug = false
