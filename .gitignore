@@ -7,3 +7,4 @@
 *.txt
 github.com/
 golang.org/
+/ciphermagic.cn/joyy/s3/main.go
